@@ -1,6 +1,8 @@
 eventsourced
 ==============
 
+*WARNING:* This is currently in the experimental stage. It is not ready for use yet.
+
 `eventsourced` streams stdin to a TCP/IP port as `text/event-source`.
 
 On the server:
