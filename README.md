@@ -12,7 +12,16 @@ $ ping example.com | eventsourced --port 1337
 In the browser:
 
 ```
-new EventSource("http://0.0.0.0:1337/").onmessage = e => console.log(e.data)
+> new EventSource("http://0.0.0.0:1337/").onmessage = e => console.log(e.data)
+  PING example.com (93.184.216.34): 56 data bytes
+  64 bytes from 93.184.216.34: icmp_seq=0 ttl=50 time=86.586 ms
+  64 bytes from 93.184.216.34: icmp_seq=1 ttl=50 time=89.107 ms
+  64 bytes from 93.184.216.34: icmp_seq=2 ttl=50 time=88.805 ms
+  64 bytes from 93.184.216.34: icmp_seq=3 ttl=50 time=88.843 ms
+  64 bytes from 93.184.216.34: icmp_seq=4 ttl=50 time=89.181 ms
+  64 bytes from 93.184.216.34: icmp_seq=5 ttl=50 time=89.159 ms
+  64 bytes from 93.184.216.34: icmp_seq=6 ttl=50 time=87.214 ms
+  ...
 ```
 
 Inspiration
