@@ -3,12 +3,9 @@
 module Lib (createWaiApp) where
 
 import System.IO.Error (tryIOError)
-import Network.Wai
-import Network.Wai.EventSource
-import Network.Wai.Middleware.AddHeaders
-import qualified Data.ByteString.Lazy as L
-import qualified Data.ByteString.Lazy.Char8 as C
-import Blaze.ByteString.Builder.ByteString
+import Network.Wai (Middleware, Application)
+import Network.Wai.EventSource (ServerEvent(..), eventSourceAppIO)
+import Network.Wai.Middleware.AddHeaders (addHeaders)
 import Blaze.ByteString.Builder.Char8 (fromString)
 
 nextEvent :: IO ServerEvent
