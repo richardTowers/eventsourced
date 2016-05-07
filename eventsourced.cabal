@@ -17,6 +17,8 @@ library
   hs-source-dirs:      src
   exposed-modules:     Lib
   build-depends:       base >= 4.7 && < 5
+                     , bytestring
+                     , blaze-builder
                      , wai
                      , wai-extra
   default-language:    Haskell2010
@@ -26,6 +28,7 @@ executable eventsourced-exe
   main-is:             Main.hs
   ghc-options:         -threaded -rtsopts -with-rtsopts=-N
   build-depends:       base
+                     , bytestring
                      , warp
                      , eventsourced
   default-language:    Haskell2010
