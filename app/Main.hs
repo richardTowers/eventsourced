@@ -6,5 +6,5 @@ import qualified Data.ByteString.Lazy as L
 
 main :: IO ()
 main = do
-    run 1337 $ createWaiApp L.getContents
+    run 1337 $ createWaiApp
 
