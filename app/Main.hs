@@ -1,6 +1,9 @@
 module Main where
 
-import Lib
+import Network.Wai.Handler.Warp (run)
+import Lib (createWaiApp)
 
 main :: IO ()
-main = someFunc
+main = do
+    run 1337 $ createWaiApp getContents
+

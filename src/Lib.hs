@@ -1,6 +1,10 @@
-module Lib
-    ( someFunc
-    ) where
+module Lib ( createWaiApp) where
 
-someFunc :: IO ()
-someFunc = putStrLn "someFunc"
+import Network.Wai
+import Network.Wai.EventSource
+
+toEvent :: String -> ServerEvent
+toEvent s = CloseEvent
+
+createWaiApp :: IO String -> Application
+createWaiApp input = eventSourceAppIO $ fmap toEvent input
