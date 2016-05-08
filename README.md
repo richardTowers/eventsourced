@@ -1,14 +1,12 @@
 eventsourced
 ==============
 
-*WARNING:* This is currently in the experimental stage. It is not ready for use yet.
-
 `eventsourced` streams stdin to a TCP/IP port as `text/event-source`.
 
 On the server:
 
 ```
-$ ping example.com | eventsourced --port 1337
+$ ping example.com | eventsourced --port=1337 --allow-origin=localhost
 ```
 
 In the browser:
