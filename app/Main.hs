@@ -26,6 +26,7 @@ options = [
     Option ['a'] ["allow-origin"] (ReqArg makeAllowOrigin "ORIGIN") "value for the Access-Control-Allow-Origin header (default null)"
   ]
 
+showHelp :: Options -> IO Options
 showHelp _ = do
     putStrLn $ usageInfo header options
     exitWith ExitSuccess
