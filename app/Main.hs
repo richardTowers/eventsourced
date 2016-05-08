@@ -16,15 +16,8 @@ main = do
     putStrLn $ "Allowed orgins: " ++ allowOrigin
     run port $ application allowOrigin
 
-data Options = Options {
-    optPort :: Int,
-    optAllowOrigin :: String
-}
-
-defaultOptions = Options {
-    optPort = 1337,
-    optAllowOrigin = "null"
-}
+data Options   = Options { optPort :: Int, optAllowOrigin :: String }
+defaultOptions = Options 1337 "null"
 
 options :: [OptDescr (Options -> IO Options)]
 options = [
