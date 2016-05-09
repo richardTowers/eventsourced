@@ -27,7 +27,7 @@ In the browser:
 Inspiration
 -----------
 
-This is similar in spirit to [joewalnes/websocketd](https://github.com/joewalnes/websocketd/), but instead of duplex communication it is boradcast only.
+This is similar in spirit to [joewalnes/websocketd](https://github.com/joewalnes/websocketd/), but instead of duplex communication it is broadcast only.
 
 It was inspired by this post https://medium.com/@joewalnes/tail-f-to-the-web-browser-b933d9056cc
 
