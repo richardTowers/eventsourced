@@ -9,7 +9,7 @@ import System.Console.GetOpt
 main :: IO ()
 main = do
     args <- getArgs
-    let (actions, nonOpts, msgs) = getOpt RequireOrder options args
+    let (actions, _, _) = getOpt RequireOrder options args
     opts <- foldl (>>=) (return defaultOptions) actions
     let Options { optPort = port, optAllowOrigin = allowOrigin } = opts
     putStrLn $ "Streaming standard input to port " ++ (show port)
@@ -17,6 +17,7 @@ main = do
     run port $ application allowOrigin
 
 data Options   = Options { optPort :: Int, optAllowOrigin :: String }
+defaultOptions :: Options
 defaultOptions = Options 1337 "null"
 
 options :: [OptDescr (Options -> IO Options)]
@@ -37,4 +38,5 @@ makePort s opt = return opt { optPort = (read s) }
 makeAllowOrigin :: String -> Options -> IO Options
 makeAllowOrigin s opt = return opt { optAllowOrigin = s }
 
+header :: String
 header = "Usage: eventsourced [OPTIONS...]"
