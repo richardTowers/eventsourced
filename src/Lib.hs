@@ -1,4 +1,4 @@
-module Lib (application) where
+module Lib (application, serverEvent) where
 
 import System.IO.Error (tryIOError)
 import Network.Wai (Middleware, Application)
@@ -21,4 +21,3 @@ addCorsHeaders s = addHeaders [(pack "Access-Control-Allow-Origin", pack s)]
 
 application :: String -> Application
 application allowOrigin = addCorsHeaders allowOrigin $ eventSourceAppIO eventFromLine
-
