@@ -1,14 +1,15 @@
 {-# LANGUAGE StandaloneDeriving #-}
+{-# LANGUAGE OverloadedStrings #-}
 
 import Test.HUnit
 import System.IO.Error
 import Network.Wai.EventSource (ServerEvent(..))
 import Blaze.ByteString.Builder.Char8 (fromString)
 import Blaze.ByteString.Builder (toByteString)
-import Data.ByteString.Char8 (unpack)
+import Data.ByteString.Char8 (pack, unpack)
 import Data.ByteString.Builder (Builder)
 
-import Lib (serverEvent)
+import Lib (serverEvent, createCorsHeaders)
 
 -- ServerEvent and Builder don't derive Eq or Show, which makes them hard to test.
 -- We can tell Haskell how to compare / show them by creating type instances:
@@ -31,10 +32,16 @@ testServerEvent = do
 
 testServerEventClosesWhenEndOfFileReached = do
     let endOfFileError = Left $ mkIOError eofErrorType "" Nothing Nothing
-    TestCase $ do
-        assertEqual "for serverEvent (Left IOError)" (serverEvent endOfFileError) CloseEvent
+    TestCase $ assertEqual "for serverEvent (Left IOError)" (serverEvent endOfFileError) CloseEvent
+
+testCreateCorsHeaders = do
+    TestCase $ assertEqual "for createCorsHeaders BANANA" (createCorsHeaders "BANANA") [("Access-Control-Allow-Origin", "BANANA")]
 
 main :: IO ()
 main = do
-    counts <- runTestTT $ test [testServerEvent, testServerEventClosesWhenEndOfFileReached]
+    counts <- runTestTT $ test [
+        testServerEvent,
+        testServerEventClosesWhenEndOfFileReached,
+        testCreateCorsHeaders
+      ]
     putStrLn "Done"
