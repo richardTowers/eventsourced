@@ -9,11 +9,11 @@ getCommandLineOptions :: IO Options
 getCommandLineOptions = do
     args <- getArgs
     let (actions, _, _) = getOpt RequireOrder options args
-    foldl (>>=) (return defaultOptions) actions
+    foldl (>>=) defaultOptions actions
 
 data Options   = Options { optPort :: Int, optAllowOrigin :: String }
-defaultOptions :: Options
-defaultOptions = Options 1337 "null"
+defaultOptions :: IO Options
+defaultOptions = return $ Options 1337 "null"
 
 options :: [OptDescr (Options -> IO Options)]
 options = [
