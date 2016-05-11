@@ -21,14 +21,9 @@ instance Eq Builder where
     (/=) x y = (show x) /= (show y)
 
 testServerEvent = do
-    let expectedName = Nothing
-    let expectedId = Nothing
-    let expectedData = [ fromString "Hello World!" ]
-    let ServerEvent actualName actualId actualData = serverEvent $ Right "Hello World!"
-    TestCase $ do
-        assertEqual "for severEvent (Right \"Hello World!\")" actualName expectedName
-        assertEqual "for severEvent (Right \"Hello World!\")" actualId expectedId
-        assertEqual "for severEvent (Right \"Hello World!\")" actualData expectedData
+    let expected = ServerEvent Nothing Nothing [ fromString "Hello World!" ]
+    let actual = serverEvent $ Right "Hello World!"
+    TestCase $ assertEqual "for severEvent (Right \"Hello World!\")" actual expected
 
 testServerEventClosesWhenEndOfFileReached = do
     let endOfFileError = Left $ mkIOError eofErrorType "" Nothing Nothing
