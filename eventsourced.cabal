@@ -38,6 +38,7 @@ test-suite eventsourced-test
   main-is:             Spec.hs
   build-depends:       base
                      , HUnit
+                     , bytestring
                      , blaze-builder
                      , wai-extra
                      , eventsourced
