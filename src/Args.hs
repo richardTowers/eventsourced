@@ -20,11 +20,7 @@ getCommandLineOptions = do
     return $ mergeOptions transformers
 
 mergeOptions :: [(OptionsTransformer)] -> Options
-mergeOptions = foldl t defaultOptions
-
--- "T" ("Thrush") combinator from To Mock a Mockingbird
-t :: a -> (a -> b) -> b
-t x y = y x
+mergeOptions = foldl (flip ($)) defaultOptions
 
 data Options = Options { optPort :: Int, optAllowOrigin :: String } deriving (Eq, Show)
 defaultOptions :: Options
