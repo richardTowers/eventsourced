@@ -1,7 +1,7 @@
 TODO
 =======
 
-- [ ] tests
+- [x] tests
 - [ ] get a Travis build
 - [ ] Haddock comments
 - [ ] gh-pages branch for demo / marketing site
