@@ -8,7 +8,7 @@ import Blaze.ByteString.Builder.Char8 (fromString)
 import Data.ByteString.Char8 (pack)
 import Data.ByteString (ByteString)
 
-serverEvent :: (Either IOError String) -> ServerEvent
+serverEvent :: Either IOError String -> ServerEvent
 serverEvent (Left _) = CloseEvent
 serverEvent (Right s) = ServerEvent Nothing Nothing [ fromString s ]
 
