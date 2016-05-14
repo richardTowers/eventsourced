@@ -1,5 +1,5 @@
 name:                eventsourced
-version:             0.1.0.0
+version:             0.1.1.0
 synopsis:            Server-Sent Events the UNIX way
 description:         Please see README.md
 homepage:            https://github.com/githubuser/eventsourced#readme
@@ -15,8 +15,8 @@ cabal-version:       >=1.10
 
 library
   hs-source-dirs:      src
-  exposed-modules:     Lib
-                     , Args
+  exposed-modules:     Network.Eventsourced.Lib
+                     , Network.Eventsourced.Args
   build-depends:       base >= 4.7 && < 5
                      , bytestring
                      , blaze-builder

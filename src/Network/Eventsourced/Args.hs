@@ -1,4 +1,4 @@
-module Args (Options(..), getCommandLineOptions, defaultOptions) where
+module Network.Eventsourced.Args (Options(..), getCommandLineOptions, defaultOptions) where
 
 import System.Console.GetOpt
 

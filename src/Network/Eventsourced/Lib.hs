@@ -1,4 +1,4 @@
-module Lib (application, serverEvent, createCorsHeaders) where
+module Network.Eventsourced.Lib (application, serverEvent, createCorsHeaders) where
 
 import System.IO.Error (tryIOError)
 import Network.Wai (Middleware, Application)

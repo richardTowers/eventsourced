@@ -11,8 +11,8 @@ import Blaze.ByteString.Builder (toByteString)
 import Data.ByteString.Char8 (unpack)
 import Data.ByteString.Builder (Builder)
 
-import Lib (serverEvent, createCorsHeaders)
-import Args (Options(..), getCommandLineOptions, defaultOptions)
+import Network.Eventsourced.Lib (serverEvent, createCorsHeaders)
+import Network.Eventsourced.Args (Options(..), getCommandLineOptions, defaultOptions)
 
 -- ServerEvent and Builder don't derive Eq or Show, which makes them hard to test.
 -- We can tell Haskell how to compare / show them by creating type instances:

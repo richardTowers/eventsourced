@@ -1,8 +1,9 @@
 module Main where
 
-import Lib (application)
+import Network.Eventsourced.Lib (application)
+import Network.Eventsourced.Args (Options(..), getCommandLineOptions)
+
 import System.Environment (getArgs)
-import Args (Options(..), getCommandLineOptions)
 import Network.Wai.Handler.Warp (run)
 
 main :: IO ()
