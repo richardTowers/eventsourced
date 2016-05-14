@@ -1,6 +1,8 @@
 eventsourced
 ==============
 
+[![Build Status](https://travis-ci.org/richardTowers/eventsourced.svg?branch=master)](https://travis-ci.org/richardTowers/eventsourced)
+
 `eventsourced` streams stdin to a TCP/IP port as `text/event-source`.
 
 On the server:
