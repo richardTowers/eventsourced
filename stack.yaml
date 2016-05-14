@@ -1,7 +1,0 @@
-resolver: lts-5.15
-packages:
-- '.'
-extra-deps:
-- wai-extra-3.0.15.1
-flags: {}
-extra-package-dbs: []
