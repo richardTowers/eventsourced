@@ -8,7 +8,13 @@ eventsourced
 Installation
 ------------
 
-Install from [cabal](https://www.haskell.org/cabal/) with:
+If you're on OS X you can install the latest binary with [homebrew](http://brew.sh/):
+
+```
+brew install richardTowers/tap/eventsourced
+```
+
+If you're on another platform or would prefer to install from source, you can install from [cabal](https://www.haskell.org/cabal/) with:
 
 ```
 cabal install eventsourced
