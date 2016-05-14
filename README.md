@@ -5,6 +5,18 @@ eventsourced
 
 `eventsourced` streams stdin to a TCP/IP port as `text/event-source`.
 
+Installation
+------------
+
+Install from [cabal](https://www.haskell.org/cabal/) with:
+
+```
+cabal install eventsourced
+```
+
+Usage
+------------
+
 On the server:
 
 ```
@@ -29,7 +41,7 @@ In the browser:
 Inspiration
 -----------
 
-This is similar in spirit to [joewalnes/websocketd](https://github.com/joewalnes/websocketd/), but instead of duplex communication it is broadcast only.
+This is similar in spirit to [joewalnes/websocketd](https://github.com/joewalnes/websocketd/), but instead of two-way communication it is just one-way.
 
 It was inspired by this post https://medium.com/@joewalnes/tail-f-to-the-web-browser-b933d9056cc
 
@@ -39,12 +51,4 @@ It was inspired by this post https://medium.com/@joewalnes/tail-f-to-the-web-bro
 > $ (echo -e ‘HTTP/1.1 200 OK\nAccess-Control-Allow-Origin: *\nContent-type: text/event-stream\n’ && tail -f /path/to/some/file | sed -u -e ‘s/^/data: /;s/$/\n/’) | nc -l 1234
 > ```
 
-Which is super clever, but has some caveats:
-
-> Should you use this?
-Uhhh no, not really [...]
-* it’ll only allow a single connection
-* it starts tailing before the connection is received so if you’re not expecting a connection for a while it’ll eat memory
-* there’s absolutely no authentication there
-
-`eventsourced` attempts to address these issues.
+`eventsourced` is a (slightly) more rigorous way of doing the same thing.
