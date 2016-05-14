@@ -3,7 +3,7 @@ TODO
 
 - [x] tests
 - [x] get a Travis build
-- [ ] Haddock comments
+- [x] publish to Cabal so users can `cabal install eventsourced`?
+- [ ] set up a brew tap
 - [ ] gh-pages branch for demo / marketing site
-- [ ] see if Cabal deem this project worthy of `cabal install eventsourced`?
-- [ ] set up a brew tap?
+- [ ] Haddock comments
