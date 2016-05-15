@@ -1,5 +1,5 @@
 name:                eventsourced
-version:             1.1.0.0
+version:             1.1.1.0
 synopsis:            Server-Sent Events the UNIX way
 description:
   @eventsourced@ streams stdin to a TCP\/IP port as @text\/event-source@.
@@ -24,7 +24,7 @@ description:
   >  64 bytes from 93.184.216.34: icmp_seq=6 ttl=50 time=87.214 ms
   >  ...
   .
-homepage:            https://github.com/githubuser/eventsourced#readme
+homepage:            https://github.com/richardTowers/eventsourced#readme
 license:             MIT
 license-file:        LICENSE
 author:              Richard Towers
@@ -70,4 +70,4 @@ test-suite eventsourced-test
 
 source-repository head
   type:     git
-  location: https://github.com/githubuser/eventsourced
+  location: https://github.com/richardTowers/eventsourced
