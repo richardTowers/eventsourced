@@ -1,5 +1,5 @@
 name:                eventsourced
-version:             1.0.0.0
+version:             1.1.0.0
 synopsis:            Server-Sent Events the UNIX way
 description:
   @eventsourced@ streams stdin to a TCP\/IP port as @text\/event-source@.
