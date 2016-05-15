@@ -1,1 +1,23 @@
-<h1>Hello World!</h1>
+<!DOCTYPE html>
+<html lang=en>
+  <head>
+    <meta charset=utf-8>
+    <title>eventsourced - Server-Sent Events the UNIX way</title>
+    <link rel=stylesheet href=style.css>
+  </head>
+  <body>
+    <h1>eventsourced</h1>
+	<p>
+	  <code>eventsourced</code> streams stdin to a TCP/IP port as <code>text/event-source</code>
+	</p>
+	<h2>Example</h2>
+	<div class='command server'>
+	  <code>ping -c 10 example.com | eventsourced --port=8080 --allow-origin=richard-towers.com</code>
+	</div>
+	<div class='command client'>
+	  <code>new EventSource('http://0.0.0.0:1337').onmessage = e =&gt; appendMessage</code>
+	</div>
+	<pre id=output></pre>
+    <script src=script.js></script>
+  </body>
+</html>
