@@ -15,8 +15,7 @@ serverEvent (Right s) = ServerEvent Nothing Nothing [ fromString s ]
 
 eventFromLine :: MVar () -> IO ServerEvent
 eventFromLine shutdownMVar = do
-    input <- tryIOError getLine
-    let event = serverEvent input
+    event <- serverEvent <$> tryIOError getLine
     case event of
         CloseEvent -> do
             putMVar shutdownMVar ()
@@ -30,6 +29,5 @@ addCorsHeaders :: String -> Middleware
 addCorsHeaders s = addHeaders $ createCorsHeaders s
 
 application :: MVar () -> String -> Application
-application shutdown allowOrigin = do
-    let app = eventSourceAppIO $ eventFromLine shutdown
-    addCorsHeaders allowOrigin app
+application shutdown allowOrigin =
+    addCorsHeaders allowOrigin $ eventSourceAppIO $ eventFromLine shutdown

@@ -11,12 +11,10 @@ main :: IO ()
 main = do
     args <- getArgs
     shutdownMVar <- newEmptyMVar
-    let opts = getCommandLineOptions args
-    case opts of
-        Options _    _          (Just help)  -> putStrLn help
+    case getCommandLineOptions args of
+        Options _ _ (Just help)              -> putStrLn help
         Options port allowOrigin Nothing     -> do
-            putStrLn $ "Streaming standard input to port " ++ (show port)
-            putStrLn $ "Allowed orgins: " ++ allowOrigin
-            let app = application shutdownMVar allowOrigin
-            _ <- forkIO $ run port app
+            putStrLn $ "Streaming standard input to port " ++ show port
+            putStrLn $ "Allowed origin: " ++ allowOrigin
+            _ <- forkIO $ run port $ application shutdownMVar allowOrigin
             takeMVar shutdownMVar
